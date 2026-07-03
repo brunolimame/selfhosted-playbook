@@ -1,88 +1,94 @@
 # selfhosted-playbook
 
-Playbook completo para criar um servidor caseiro com acesso publico via dominio, utilizando VirtualBox, Ubuntu Server, Coolify, Cloudflare Tunnel e dezenas de ferramentas auto-hospedadas.
+Complete playbook to create a home server with public domain access, using VirtualBox, Ubuntu Server, Coolify, Cloudflare Tunnel and dozens of self-hosted tools.
 
-## Arquitetura
+## Architecture
 
 ```
 Internet -> vm.doc.local -> Cloudflare DNS -> Cloudflare Edge
                                                   |
-     VM (VirtualBox) <- cloudflared (tunnel) <-----+
-          |
-     Coolify (Painel :8000)
-          |
-     Docker (aplicacoes)
+      VM (VirtualBox) <- cloudflared (tunnel) <-----+
+           |
+      Coolify (Dashboard :8000)
+           |
+      Docker (applications)
 ```
 
-## Documentacao
+## Documentation
 
-| Idioma | Link |
-|--------|------|
-| Portugues | [pt/README.md](./pt/README.md) |
-| English | *em breve* |
-| Espanol | *em breve* |
+| Language | Link | Root README |
+|----------|------|-------------|
+| English | [en/README.md](./en/README.md) | [README.md](./README.md) |
+| Portugues | [pt/README.md](./pt/README.md) | [README.pt.md](./README.pt.md) |
+| Espanol | [es/README.md](./es/README.md) | [README.es.md](./README.es.md) |
 
-### Inicio rapido (Portugues)
+### Quick start (English)
 
-1. [Introducao](./pt/01-introducao.md) - Visao geral da arquitetura
-2. [Pre-requisitos](./pt/02-pre-requisitos.md) - O que voce precisa
-3. [VM](./pt/03-vm/README.md) - VirtualBox + Ubuntu Server
-4. [Dominio](./pt/04-dominio.md) - Cloudflare DNS
-5. [Exposicao Publica](./pt/05-exposicao-publica/README.md) - Cloudflare Tunnel
-6. [Coolify](./pt/06-coolify/README.md) - Gerenciamento de apps
-7. [Aplicacoes](./pt/09-aplicacoes/README.md) - n8n, Typebot, evolution-go, Chatwoot, Dify, MinIO, Uptime Kuma, Netdata e mais
-8. [Seguranca](./pt/07-seguranca.md) - Firewall, SSH, WAF
+1. [Introduction](./en/01-introduction.md) - Architecture overview
+2. [Prerequisites](./en/02-prerequisites.md) - What you need
+3. [VM](./en/03-vm/README.md) - VirtualBox + Ubuntu Server
+4. [Domain](./en/04-domain.md) - Cloudflare DNS
+5. [Public Exposure](./en/05-public-exposure/README.md) - Cloudflare Tunnel
+6. [Coolify](./en/06-coolify/README.md) - App management
+7. [Applications](./en/09-applications/README.md) - n8n, Typebot, evolution-go, Chatwoot, Dify, MinIO, Uptime Kuma, Netdata and more
+8. [Security](./en/07-security.md) - Firewall, SSH, WAF
 
-## O que este playbook cobre
+## What this playbook covers
 
-### Infraestrutura base
-- Instalacao do VirtualBox em Windows, Linux e macOS
-- Configuracao do Ubuntu Server LTS
-- Rede com IP fixo
-- Registro de dominio e Cloudflare DNS
+### Base infrastructure
+- VirtualBox installation on Windows, Linux and macOS
+- Ubuntu Server LTS setup
+- Static IP network configuration
+- Domain registration and Cloudflare DNS
 
-### Exposicao publica (4 metodos)
-- **Cloudflare Tunnel** (recomendado)
+### Public exposure (4 methods)
+- **Cloudflare Tunnel** (recommended)
 - DDNS + Port Forwarding
 - Tailscale Funnel
 - ngrok
 
-### Aplicacoes (12 documentadas)
+### Applications (12 documented)
 
-| App | Finalidade | Porta |
-|-----|-----------|-------|
-| [Coolify](pt/06-coolify/README.md) | Gerenciamento de aplicacoes | 8000 |
-| [n8n](pt/09-aplicacoes/02-n8n.md) | Automacao de workflows | 5678 |
-| [Typebot](pt/09-aplicacoes/04-typebot.md) | Chatbot visual (WhatsApp, Telegram, Web) | 3001-3002 |
-| [evolution-go](pt/09-aplicacoes/03-evolution-go.md) | API do WhatsApp | 4000 |
-| [Chatwoot](pt/09-aplicacoes/05-chatwoot.md) | Helpdesk multi-agente | 3000 |
-| [Dify](pt/09-aplicacoes/06-dify.md) | IA com RAG e base de conhecimento | 8080 |
-| [MinIO](pt/09-aplicacoes/07-minio.md) | Armazenamento S3 | 9000-9001 |
-| [Uptime Kuma](pt/09-aplicacoes/11-uptime-kuma.md) | Monitoramento de uptime | 3001 |
-| [Netdata](pt/09-aplicacoes/12-netdata.md) | Metricas em tempo real | 19999 |
-| [pgAdmin](pt/09-aplicacoes/10-pgadmin.md) | Administracao PostgreSQL | 5050 |
-| [Graphify](pt/09-aplicacoes/09-graphify.md) | Grafo de conhecimento para IA | 8080 |
-| [Odysseus](pt/09-aplicacoes/01-odysseus.md) | Workspace de IA | 7000 |
+| App | Purpose | Port |
+|-----|---------|------|
+| [Coolify](en/06-coolify/README.md) | Application management | 8000 |
+| [n8n](en/09-applications/02-n8n.md) | Workflow automation | 5678 |
+| [Typebot](en/09-applications/04-typebot.md) | Visual chatbot (WhatsApp, Telegram, Web) | 3001-3002 |
+| [evolution-go](en/09-applications/03-evolution-go.md) | WhatsApp API | 4000 |
+| [Chatwoot](en/09-applications/05-chatwoot.md) | Multi-agent helpdesk | 3000 |
+| [Dify](en/09-applications/06-dify.md) | AI with RAG and knowledge base | 8080 |
+| [MinIO](en/09-applications/07-minio.md) | S3 storage | 9000-9001 |
+| [Uptime Kuma](en/09-applications/11-uptime-kuma.md) | Uptime monitoring | 3001 |
+| [Netdata](en/09-applications/12-netdata.md) | Real-time metrics | 19999 |
+| [pgAdmin](en/09-applications/10-pgadmin.md) | PostgreSQL administration | 5050 |
+| [Graphify](en/09-applications/09-graphify.md) | Knowledge graph for AI | 8080 |
+| [Odysseus](en/09-applications/01-odysseus.md) | AI workspace | 7000 |
 
-### Chatbot multicanal
-Guia completo para criar um chatbot unificado que atende em:
+### Multichannel chatbot
+Complete guide to build a unified chatbot serving:
 - **WhatsApp** (evolution-go + Typebot)
 - **Telegram** (Bot API + n8n)
 - **Facebook / Instagram** (Meta API + n8n)
 - **Web** (Typebot embed)
 - **Email** (n8n IMAP/SMTP)
 
-### Seguranca
-- Firewall (UFW)
-- SSH com chave
+### Security
+- UFW Firewall
+- SSH key authentication
 - Fail2ban
 - Cloudflare WAF
-- Backup automatizado
+- Automated backups
 
-## Para LLMs: expandir a documentacao
+## For LLMs: expand the documentation
 
-Use o arquivo [`pt/ADICIONAR_APLICACAO.md`](./pt/ADICIONAR_APLICACAO.md) como template para documentar novas aplicacoes. Ele contem instrucoes, checklist e template markdown para LLMs.
+Use the file [`en/ADD_APPLICATION.md`](./en/ADD_APPLICATION.md) as a template to document new applications. It contains instructions, checklist and a full markdown template for LLMs.
 
-## Licenca
+## License
 
-MIT
+[CC BY 4.0](./LICENSE) - Bruno Lima
+
+| Language | File |
+|----------|------|
+| English | [LICENSE](./LICENSE) |
+| Portugues (BR) | [LICENSE.pt-BR.md](./LICENSE.pt-BR.md) |
+| Espanol | [LICENSE.es.md](./LICENSE.es.md) |
