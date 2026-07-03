@@ -2,6 +2,16 @@
 
 Guide to creating and configuring the virtual machine that will run the server.
 
+## Choose your hypervisor
+
+| Hypervisor | Platform | Cost | Guide |
+|------------|----------|------|-------|
+| VirtualBox | Windows, Linux, macOS | Free | [Guide](./01-virtualbox.md) |
+| VMware Workstation Pro | Windows, Linux | Free (personal use) | [Guide](./04-vmware.md) |
+| Parallels Desktop | macOS (Intel + Apple Silicon) | Paid | [Guide](./05-parallels.md) |
+
+> **Note**: Ubuntu Server installation and network configuration steps are the same regardless of hypervisor.
+
 ## Steps
 
 | Step | Description |
@@ -10,19 +20,15 @@ Guide to creating and configuring the virtual machine that will run the server.
 | [02 - Ubuntu Server](./02-ubuntu-server.md) | Operating system installation |
 | [03 - Network](./03-network.md) | VM network configuration |
 
-## Overview
-
-The VM will run Ubuntu Server LTS (no graphical interface) inside VirtualBox. All interaction with it will be via SSH.
-
-## Suggested specifications
+## Suggested specifications (any hypervisor)
 
 | Setting | Value |
 |---------|-------|
 | Name | `ubuntu-server` |
-| Type | Linux / Ubuntu (64-bit) |
+| OS | Ubuntu Server LTS (64-bit) |
 | RAM | 4096 MB |
 | CPU | 2 cores |
-| Disk | 40 GB (dynamic) |
+| Disk | 40 GB |
 | Network | Adapter in Bridge mode |
 
 ## Bridge mode network
@@ -36,4 +42,7 @@ This is important because:
 
 ## Next step
 
-[Install VirtualBox and create the VM](./01-virtualbox.md)
+Choose your hypervisor and create the VM:
+- [VirtualBox](./01-virtualbox.md) (Windows, Linux, macOS - free)
+- [VMware Workstation Pro](./04-vmware.md) (Windows, Linux - free for personal use)
+- [Parallels Desktop](./05-parallels.md) (macOS - paid)

@@ -2,27 +2,33 @@
 
 Guia para crear y configurar la maquina virtual que ejecutara el servidor.
 
-## Etapas
+## Elige tu hipervisor
+
+| Hipervisor | Plataforma | Costo | Documentacion |
+|------------|-----------|-------|---------------|
+| VirtualBox | Windows, Linux, macOS | Gratuito | [Guia](./01-virtualbox.md) |
+| VMware Workstation Pro | Windows, Linux | Gratuito (uso personal) | [Guia](./04-vmware.md) |
+| Parallels Desktop | macOS (Intel + Apple Silicon) | Pago | [Guia](./05-paralelos.md) |
+
+> **Nota**: Los pasos de instalacion de Ubuntu Server y configuracion de red son los mismos para cualquier hipervisor.
+
+## Pasos
 
 | Paso | Descripcion |
 |------|-------------|
-| [01 - VirtualBox](./01-virtualbox.md) | Instalacion y configuracion de la VM |
+| [01 - VirtualBox](./01-virtualbox.md) | Instalacion y configuracion de la VM (VirtualBox) |
 | [02 - Ubuntu Server](./02-ubuntu-server.md) | Instalacion del sistema operativo |
 | [03 - Red](./03-red.md) | Configuracion de red de la VM |
 
-## Vision general
-
-La VM ejecutara Ubuntu Server LTS (sin interfaz grafica) dentro de VirtualBox. Toda la interaccion con ella sera via SSH.
-
-## Especificaciones sugeridas
+## Especificaciones sugeridas (cualquier hipervisor)
 
 | Configuracion | Valor |
 |---------------|-------|
 | Nombre | `ubuntu-server` |
-| Tipo | Linux / Ubuntu (64-bit) |
+| SO | Ubuntu Server LTS (64-bit) |
 | RAM | 4096 MB |
 | CPU | 2 nucleos |
-| Disco | 40 GB (dinamico) |
+| Disco | 40 GB |
 | Red | Placa en modo Bridge |
 
 ## Red en modo Bridge
@@ -36,4 +42,7 @@ Esto es importante porque:
 
 ## Proximo paso
 
-[Instalar VirtualBox y crear la VM](./01-virtualbox.md)
+Elige tu hipervisor y crea la VM:
+- [VirtualBox](./01-virtualbox.md) (Windows, Linux, macOS - gratuito)
+- [VMware Workstation Pro](./04-vmware.md) (Windows, Linux - gratuito para uso personal)
+- [Parallels Desktop](./05-paralelos.md) (macOS - pago)
